@@ -145,6 +145,28 @@ plot(x = mean_interval$interval, y = mean_interval$steps, type = "l", xlab = "In
 ![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
 
 
+The 5-minute interval containing the maximum number of steps is:
+
+```r
+which.max(mean_interval[, 2])
+```
+
+```
+## [1] 104
+```
+
+This corresponds to the row:
+
+```r
+mean_interval[which.max(mean_interval[, 2]), ]
+```
+
+```
+##     interval steps
+## 104      835 206.2
+```
+
+
 ## Inputing missing values
 The first part of the next question states:
 
@@ -218,7 +240,7 @@ new_summed_days <- aggregate(steps ~ date, new_activitydata, FUN = sum, na.actio
 hist(new_summed_days$steps, xlab = "Number of Steps per Day", main = "Histogram of the Total Number of Steps Taken Each Day\n     (with NAs replaced by Mean Interval Value)")
 ```
 
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
+![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
 
 
 With the new mean and medians as:
@@ -306,6 +328,6 @@ xyplot(steps ~ interval | weekday_factor, mean_interval_weekday, type = "l",
     main = "Time Series Plot of:\n+      (5-minute) Interval vs Average Number of Steps Taken by Weekend/Weekday")
 ```
 
-![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19.png) 
+![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21.png) 
 
 

@@ -70,6 +70,15 @@ plot(x=mean_interval$interval,y=mean_interval$steps, type= "l", xlab="Interval (
      (5-minute) Interval vs Average Number of Steps Taken")
 ```
 
+The 5-minute interval containing the maximum number of steps is:
+```{r}
+which.max(mean_interval[,2])
+```
+This corresponds to the row:
+```{r}
+mean_interval[which.max(mean_interval[,2]),]
+```
+
 ## Inputing missing values
 The first part of the next question states:
 
